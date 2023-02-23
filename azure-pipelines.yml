@@ -40,11 +40,3 @@ steps:
 - script: |
     python setup.py bdist_wheel
   displayName: 'build with setup.py'
-
-- task: TwineAuthenticate@1
-  inputs:
-    artifactFeed: 'MLOPS-POC/mlops_package'
-  displayName: 'Twine Authenticate'
-
-- script: |
-    python -m twine upload -r mlops_package --config-file $(PYPIRC_PATH) dist/*.whl
